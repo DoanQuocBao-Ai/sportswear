@@ -1,4 +1,4 @@
-package com.store.sportswear.Model;
+package com.store.sportswear.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;

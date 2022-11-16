@@ -1,4 +1,4 @@
-package com.store.sportswear.Model;
+package com.store.sportswear.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -6,29 +6,29 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Categories {
+public class Brand {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
-    private String category_name;
+    private int id;
+    private String brand_name;
     @JsonIgnore
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "brand")
     private List<Product> listProduct;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public String getBrand_name() {
+        return brand_name;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setBrand_name(String brand_name) {
+        this.brand_name = brand_name;
     }
 
     public List<Product> getListProduct() {

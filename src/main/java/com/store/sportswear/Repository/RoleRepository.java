@@ -1,4 +1,8 @@
 package com.store.sportswear.Repository;
 
-public class RoleRepository {
+import com.store.sportswear.Entity.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepository extends JpaRepository<Role,Long> {
+    Role findByNameRole(String name);
 }

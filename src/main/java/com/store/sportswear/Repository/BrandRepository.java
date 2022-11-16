@@ -1,4 +1,7 @@
 package com.store.sportswear.Repository;
 
-public class BrandRepository {
+import com.store.sportswear.Entity.Brand;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BrandRepository extends JpaRepository<Brand,Long> {
 }

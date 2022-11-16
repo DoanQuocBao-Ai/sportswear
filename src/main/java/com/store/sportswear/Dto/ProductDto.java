@@ -3,7 +3,7 @@ package com.store.sportswear.Dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDto {
-    private int id;
+    private String id;
     private String name;
     private float price;
     private float sale_price;
@@ -15,11 +15,11 @@ public class ProductDto {
     private int brand_id;
     private MultipartFile image;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -93,5 +93,11 @@ public class ProductDto {
 
     public void setImage(MultipartFile image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDto [id = "+id+", name = "+name+", price= "+price+", sale_price = "+sale_price+", description = "+description+
+                ", featured = "+featured+", best_seller = "+best_seller+", category_id = "+category_id+", brand_id = "+brand_id+", image = "+image+"]";
     }
 }

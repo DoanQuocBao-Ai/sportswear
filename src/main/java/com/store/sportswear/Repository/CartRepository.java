@@ -1,4 +1,9 @@
 package com.store.sportswear.Repository;
 
-public class CartRepository {
+import com.store.sportswear.Entity.Cart;
+import com.store.sportswear.Entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CartRepository extends JpaRepository<Cart,Long> {
+    Cart findByUser(User n);
 }
