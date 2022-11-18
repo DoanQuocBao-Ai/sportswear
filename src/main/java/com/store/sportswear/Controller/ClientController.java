@@ -1,7 +1,7 @@
 package com.store.sportswear.Controller;
 
 import com.store.sportswear.Entity.Categories;
-import com.store.sportswear.Entity.User;
+import com.store.sportswear.Entity.UserSystem;
 import com.store.sportswear.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -27,13 +27,13 @@ public class ClientController {
     @Autowired
     private ICategoryService categoryService;
     @ModelAttribute("loggedInUser")
-    public User loggedInUser(){
+    public UserSystem loggedInUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUserByEmail(authentication.getName());
     }
-    public User getSessionUser(HttpServletRequest request)
+    public UserSystem getSessionUser(HttpServletRequest request)
     {
-        return (User) request.getSession().getAttribute("loggedInUser");
+        return (UserSystem) request.getSession().getAttribute("loggedInUser");
     }
     @ModelAttribute("category")
     public List<Categories> categoriesList(){

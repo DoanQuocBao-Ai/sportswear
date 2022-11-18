@@ -3,16 +3,17 @@ package com.store.sportswear.Service.implement;
 import com.querydsl.core.BooleanBuilder;
 import com.store.sportswear.Dto.SearchOrderDto;
 import com.store.sportswear.Entity.Order;
-import com.store.sportswear.Entity.User;
+import com.store.sportswear.Entity.UserSystem;
 import com.store.sportswear.Repository.OrderRepository;
 import com.store.sportswear.Service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
+@Service
 public class OrderServiceImpl implements IOrderService {
     @Autowired
     OrderRepository repository;
@@ -43,7 +44,7 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     @Override
-    public Page<Order> getOrderByShipper(SearchOrderDto object, int page, int size, User shipper) throws ParseException {
+    public Page<Order> getOrderByShipper(SearchOrderDto object, int page, int size, UserSystem shipper) throws ParseException {
         return null;
     }
 
@@ -58,13 +59,13 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     @Override
-    public List<Order> getOrderByStatusAndShipper(String status, User shipper) {
+    public List<Order> getOrderByStatusAndShipper(String status, UserSystem shipper) {
         return repository.findByStatusAndShipper(status,shipper);
     }
 
     @Override
-    public List<Order> getOrderByUser(User user) {
-        return repository.findByUser(user);
+    public List<Order> getOrderByUser(UserSystem userSystem) {
+        return repository.findByUser(userSystem);
     }
 
     @Override

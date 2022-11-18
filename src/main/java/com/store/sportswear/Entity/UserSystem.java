@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-public class User {
+public class UserSystem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
@@ -17,6 +17,7 @@ public class User {
     private String user_password;
     @Transient
     @JsonIgnore
+    private String confirmPassword;
     private String user_name;
     private String user_phone;
     private String user_address;
@@ -27,6 +28,10 @@ public class User {
     @JsonIgnore
     private List<Order>listOrder;
 
+    public UserSystem() {
+    }
+    public String getConfirmPassword(){return confirmPassword;}
+    public void setConfirmPassword(String confirmPassword){this.confirmPassword=confirmPassword;}
     public int getId() {
         return id;
     }

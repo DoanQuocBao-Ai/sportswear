@@ -10,7 +10,7 @@ public class Cart {
     private long total;
     @OneToOne
     @JoinColumn(name="user_id")
-    private User user;
+    private UserSystem userSystem;
 
     public int getId() {
         return id;
@@ -28,11 +28,11 @@ public class Cart {
         this.total = total;
     }
 
-    public User getUser() {
-        return user;
+    public UserSystem getUser() {
+        return userSystem;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserSystem userSystem) {
+        this.userSystem = userSystem;
     }
 }

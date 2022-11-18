@@ -1,6 +1,6 @@
 package com.store.sportswear.Controller;
 
-import com.store.sportswear.Entity.User;
+import com.store.sportswear.Entity.UserSystem;
 import com.store.sportswear.Service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -18,7 +18,7 @@ public class ShipperController {
     @Autowired
     private IUserService userService;
     @ModelAttribute("loggedInUser")
-    public User loggedInUser(){
+    public UserSystem loggedInUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUserByEmail(authentication.getName());
     }
@@ -32,16 +32,16 @@ public class ShipperController {
         return "shipper/profile";
     }
     @PostMapping("/updateProfile")
-    public String updateProfile(@ModelAttribute User user, HttpServletRequest request)
+    public String updateProfile(@ModelAttribute UserSystem userSystem, HttpServletRequest request)
     {
-        User currentUser = new User();
-        currentUser.setUser_name(user.getUser_name());
-        currentUser.setUser_phone(user.getUser_phone());
-        currentUser.setUser_address(user.getUser_address());
-        userService.updateUser(currentUser);
+        UserSystem currentUserSystem = new UserSystem();
+        currentUserSystem.setUser_name(userSystem.getUser_name());
+        currentUserSystem.setUser_phone(userSystem.getUser_phone());
+        currentUserSystem.setUser_address(userSystem.getUser_address());
+        userService.updateUser(currentUserSystem);
         return "redirect:/shipper/profile";
     }
-    public User getSessionUser(HttpServletRequest request){
-        return (User) request.getSession().getAttribute("loggedInUser");
+    public UserSystem getSessionUser(HttpServletRequest request){
+        return (UserSystem) request.getSession().getAttribute("loggedInUser");
     }
 }

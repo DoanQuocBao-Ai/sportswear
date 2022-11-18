@@ -1,9 +1,8 @@
 package com.store.sportswear.Controller;
 
 import com.store.sportswear.Dto.WorkListDto;
-import com.store.sportswear.Entity.Categories;
 import com.store.sportswear.Entity.Role;
-import com.store.sportswear.Entity.User;
+import com.store.sportswear.Entity.UserSystem;
 import com.store.sportswear.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -32,13 +31,13 @@ public class AdminController {
     @Autowired
     private IRoleService roleService;
     @ModelAttribute("loggedInUser")
-    public User loggedInUser()
+    public UserSystem loggedInUser()
     {
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
         return userService.getUserByEmail(authentication.getName());
     }
-    public User getSessionUser(HttpServletRequest request){
-        return (User) request.getSession().getAttribute("loggedInUser");
+    public UserSystem getSessionUser(HttpServletRequest request){
+        return (UserSystem) request.getSession().getAttribute("loggedInUser");
     }
     @GetMapping
     public String adminPage(Model model)
@@ -71,20 +70,20 @@ public class AdminController {
         return "admin/profile";
     }
     @PostMapping("/profile/update")
-    public String updateUser(@ModelAttribute User user, HttpServletRequest request){
-        User currentUser = getSessionUser(request);
-        currentUser.setUser_address(user.getUser_address());
-        currentUser.setUser_name(user.getUser_name());
-        currentUser.setUser_phone(user.getUser_phone());
-        userService.updateUser(currentUser);
+    public String updateUser(@ModelAttribute UserSystem userSystem, HttpServletRequest request){
+        UserSystem currentUserSystem = getSessionUser(request);
+        currentUserSystem.setUser_address(userSystem.getUser_address());
+        currentUserSystem.setUser_name(userSystem.getUser_name());
+        currentUserSystem.setUser_phone(userSystem.getUser_phone());
+        userService.updateUser(currentUserSystem);
         return "redirect:/admin/profile";
     }
     @GetMapping("/order")
     public  String managementOrderPage(Model model){
         Set<Role> roles=new HashSet<>();
         roles.add(roleService.getRoleByName("ROLE_SHIPPER"));
-        List<User> shippers = userService.getUserByRule(roles);
-        for (User shipper:shippers
+        List<UserSystem> shippers = userService.getUserByRole(roles);
+        for (UserSystem shipper:shippers
              ) {
             shipper.setListOrder(orderService.getOrderByStatusAndShipper("Đang giao",shipper));
         }

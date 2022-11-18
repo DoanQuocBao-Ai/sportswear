@@ -5,8 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductDto {
     private String id;
     private String name;
-    private float price;
-    private float sale_price;
+    private int price;
+    private int sale_price;
     private String description;
     private int featured;
     private int best_seller;
@@ -31,19 +31,19 @@ public class ProductDto {
         this.name = name;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public float getSale_price() {
+    public int getSale_price() {
         return sale_price;
     }
 
-    public void setSale_price(float sale_price) {
+    public void setSale_price(int sale_price) {
         this.sale_price = sale_price;
     }
 

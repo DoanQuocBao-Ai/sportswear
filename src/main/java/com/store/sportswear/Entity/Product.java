@@ -12,8 +12,8 @@ public class Product {
     private long id;
 
     private String product_name;
-    private float product_price;
-    private float sale_price;
+    private int product_price;
+    private int sale_price;
     private String description;
     private int featured;
     private int best_seller;
@@ -43,19 +43,19 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public float getProduct_price() {
+    public int getProduct_price() {
         return product_price;
     }
 
-    public void setProduct_price(float product_price) {
+    public void setProduct_price(int product_price) {
         this.product_price = product_price;
     }
 
-    public float getSale_price() {
+    public int getSale_price() {
         return sale_price;
     }
 
-    public void setSale_price(float sale_price) {
+    public void setSale_price(int sale_price) {
         this.sale_price = sale_price;
     }
 
