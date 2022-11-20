@@ -4,19 +4,20 @@ import com.store.sportswear.Dto.AccountDto;
 import com.store.sportswear.Entity.Role;
 import com.store.sportswear.Entity.UserSystem;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
-
+@Service
 public interface IUserService {
-    UserSystem saveUserForMember(UserSystem userSystem);
-    UserSystem updateUser(UserSystem userSystem);
-    void deleteUserById(Long id);
-    UserSystem getUserByEmail(String email);
-    void changePassword(String newPassword, UserSystem userSystem);
-    UserSystem getUserById(Long id);
-    Page<UserSystem> getUserByRole(Set<Role> roles, int page);
-    List<UserSystem> getUserByRole(Set<Role> roles);
-    UserSystem saveUserForAdmin(AccountDto dto);
-    UserSystem getUserByConfirmToken(String confirmToken);
+    public UserSystem saveUserForMember(UserSystem userSystem);
+    public UserSystem updateUser(UserSystem userSystem);
+    public void deleteUserById(long id);
+    public UserSystem getUserByEmail(String email);
+    public void changePassword(String newPassword, UserSystem userSystem);
+    public UserSystem getUserById(long id);
+    public Page<UserSystem> getUserByRole(Set<Role> roles, int page);
+    public List<UserSystem> getUserByRole(Set<Role> roles);
+    public UserSystem saveUserForAdmin(AccountDto dto);
+    public UserSystem getUserByConfirmToken(String confirmToken);
 }

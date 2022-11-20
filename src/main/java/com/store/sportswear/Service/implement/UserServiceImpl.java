@@ -19,8 +19,9 @@ import java.util.Set;
 @Service
 @Transactional
 public class UserServiceImpl implements IUserService {
+
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
@@ -28,51 +29,50 @@ public class UserServiceImpl implements IUserService {
     public UserServiceImpl() {
         super();
     }
-
     @Override
     public UserSystem saveUserForMember(UserSystem userSystem) {
         userSystem.setUser_password(bCryptPasswordEncoder.encode(userSystem.getUser_password()));
         Set<Role> roleSet=new HashSet<>();
         roleSet.add(roleRepository.findByNameRole("ROLE_MEMBER"));
         userSystem.setRole(roleSet);
-        return repository.save(userSystem);
+        return userRepository.save(userSystem);
     }
 
     @Override
     public UserSystem updateUser(UserSystem userSystem) {
-        return repository.save(userSystem);
+        return userRepository.save(userSystem);
     }
 
     @Override
-    public void deleteUserById(Long id) {
-        repository.deleteById(id);
+    public void deleteUserById(long id) {
+        userRepository.deleteById(id);
     }
 
     @Override
     public UserSystem getUserByEmail(String email) {
-        return repository.findByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public void changePassword(String newPassword, UserSystem userSystem) {
         userSystem.setUser_password(bCryptPasswordEncoder.encode(newPassword));
-        repository.save(userSystem);
+        userRepository.save(userSystem);
     }
 
     @Override
-    public UserSystem getUserById(Long id) {
-        UserSystem userSystem =repository.findById(id).get();
+    public UserSystem getUserById(long id) {
+        UserSystem userSystem =userRepository.findById(id).get();
         return userSystem;
     }
 
     @Override
     public Page<UserSystem> getUserByRole(Set<Role> roles, int page) {
-        return repository.findByRole(roles, PageRequest.of(page - 1, 6));
+        return userRepository.findByRole(roles, PageRequest.of(page - 1, 6));
     }
 
     @Override
     public List<UserSystem> getUserByRole(Set<Role> roles) {
-        return repository.findByRole(roles);
+        return userRepository.findByRole(roles);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class UserServiceImpl implements IUserService {
         Set<Role> roleSet =new HashSet<>();
         roleSet.add(roleRepository.findByNameRole(dto.getRole_name()));
         userSystem.setRole(roleSet);
-        return repository.save(userSystem);
+        return userRepository.save(userSystem);
     }
 
     @Override

@@ -11,5 +11,5 @@ public interface IBrandService {
     Brand getBrandById(long id);
     Brand saveBrand(Brand brand);
     Brand updateBrand(Brand brand);
-    void deleteBrandById(Long id);
+    void deleteBrandById(long id);
 }

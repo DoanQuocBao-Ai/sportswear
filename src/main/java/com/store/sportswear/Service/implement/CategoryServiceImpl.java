@@ -38,12 +38,12 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public void deleteCategory(Long id) {
+    public void deleteCategory(long id) {
         repo.deleteById(id);
     }
 
     @Override
-    public Categories getCategoryById(Long id) {
+    public Categories getCategoryById(long id) {
         return repo.findById(id).get();
     }
 }

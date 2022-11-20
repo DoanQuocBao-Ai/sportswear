@@ -30,7 +30,7 @@ public class BrandServiceImpl implements IBrandService {
         return repo.save(brand);
     }
     @Override
-    public void deleteBrandById(Long id)
+    public void deleteBrandById(long id)
     {
         repo.deleteById(id);
     }

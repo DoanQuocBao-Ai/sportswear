@@ -31,7 +31,6 @@ public class AccountApi {
                                           @RequestParam(defaultValue = "1") int page) {
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(roleService.getRoleByName(name));
-
         return userService.getUserByRole(roleSet, page);
     }
 
@@ -61,16 +60,15 @@ public class AccountApi {
     }
     public void setErrorsForResponseObject(BindingResult result, ResponseObject object) {
 
-        Map<String, String> errors = result.getFieldErrors().stream()
-                .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
-        object.setErrorMessages(errors);
+        Map<String, String> error= result.getFieldErrors().stream().collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
+        object.setErrorMessages(error);
         object.setStatus("fail");
 
-        List<String> keys = new ArrayList<String>(errors.keySet());
+        List<String> keys = new ArrayList<String>(error.keySet());
         for (String key: keys) {
-            System.out.println(key + ": " + errors.get(key));
+            System.out.println(key + ": " + error.get(key));
         }
 
-        errors = null;
+        error = null;
     }
 }

@@ -47,7 +47,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void deleteProduct(Long id) {
+    public void deleteProduct(long id) {
         repository.deleteById(id);
     }
 
@@ -57,7 +57,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(long id) {
         return repository.findById(id).get();
     }
 

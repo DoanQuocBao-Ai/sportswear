@@ -23,22 +23,22 @@ public class CategoryApi {
     private ICategoryService categoryService;
 
     @GetMapping("/all")
-    public Page<Categories> getAllDanhMuc(@RequestParam(defaultValue = "1") int page) {
+    public Page<Categories> getAllCategory(@RequestParam(defaultValue = "1") int page) {
         return categoryService.getAllCategoryForPageable(page-1,6);
     }
 
     @GetMapping("/allForReal")
-    public List<Categories> getRealAllDanhMuc() {
+    public List<Categories> getRealAllCategory() {
         return categoryService.getAllCategory();
     }
 
     @GetMapping("/{id}")
-    public Categories getDanhMucById(@PathVariable long id) {
+    public Categories getCategoryById(@PathVariable long id) {
         return categoryService.getCategoryById(id);
     }
 
     @PostMapping(value = "/save")
-    public ResponseObject addDanhMuc(@RequestBody @Valid Categories newDanhMuc, BindingResult result, HttpServletRequest request) {
+    public ResponseObject addCategory(@RequestBody @Valid Categories newCategory, BindingResult result, HttpServletRequest request) {
 
         ResponseObject responseObject = new ResponseObject();
 
@@ -57,8 +57,8 @@ public class CategoryApi {
             errors = null;
             ;
         } else {
-            categoryService.saveCategory(newDanhMuc);
-            responseObject.setObject(newDanhMuc);
+            categoryService.saveCategory(newCategory);
+            responseObject.setObject(newCategory);
             responseObject.setStatus("success");
         }
         return responseObject;
@@ -88,7 +88,7 @@ public class CategoryApi {
     @DeleteMapping("/delete/{id}")
     public String deleteCategory(@PathVariable long id, HttpServletRequest request) {
         categoryService.deleteCategory(id);
-        request.getSession().setAttribute("listDanhMuc", categoryService.getAllCategory());
+        request.getSession().setAttribute("listCategory", categoryService.getAllCategory());
         return "OK !";
     }
 }

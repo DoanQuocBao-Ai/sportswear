@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IOrderService {
     List<Order> getOrderByFilter(SearchOrderDto object, int page) throws ParseException;
-    Order getOrderById(Long id);
+    Order getOrderById(long id);
     Order updateOrderId(Order order);
     Page<Order> getOrderByShipper(SearchOrderDto object, int page, int size, UserSystem shipper) throws ParseException;
     Order saveOrder(Order order);

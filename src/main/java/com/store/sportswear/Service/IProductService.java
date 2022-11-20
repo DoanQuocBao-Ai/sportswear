@@ -11,9 +11,9 @@ import java.util.Set;
 public interface IProductService {
     Product updateProduct(ProductDto dto);
     Product saveProduct(ProductDto dto);
-    void deleteProduct(Long id);
+    void deleteProduct(long id);
     Page<Product> getAllProductByFilter(SearchProductDto object, int page, int limit);
-    Product getProductById(Long id);
+    Product getProductById(long id);
     List<Product> getProductLatest();
     Iterable<Product> getProductByNameWithPaginate(SearchProductDto dto);
     Page<Product> getProductByName(SearchProductDto dto, int page,int resultPerPage);

@@ -30,7 +30,7 @@ public class BrandApi {
     }
 
     @PostMapping(value = "/save")
-    public ResponseObject addBrand(@RequestBody @Valid Brand newHangSanXuat, BindingResult result) {
+    public ResponseObject addBrand(@RequestBody @Valid Brand newBrand, BindingResult result) {
 
         ResponseObject responseObject = new ResponseObject();
 
@@ -40,8 +40,8 @@ public class BrandApi {
             responseObject.setErrorMessages(errors);
             responseObject.setStatus("fail");
         } else {
-            brandService.saveBrand(newHangSanXuat);
-            responseObject.setObject(newHangSanXuat);
+            brandService.saveBrand(newBrand);
+            responseObject.setObject(newBrand);
             responseObject.setStatus("success");
         }
         return responseObject;
@@ -67,7 +67,7 @@ public class BrandApi {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteHangSanXuat(@PathVariable long id) {
+    public String deleteBrand(@PathVariable long id) {
         brandService.deleteBrandById(id);
         return "OK !";
     }

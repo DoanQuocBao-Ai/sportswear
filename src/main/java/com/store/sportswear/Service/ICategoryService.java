@@ -10,6 +10,6 @@ public interface ICategoryService {
     List<Categories> getAllCategory();
     Categories saveCategory(Categories categories);
     Categories updateCategory(Categories categories);
-    void deleteCategory(Long id);
-    Categories getCategoryById(Long id);
+    void deleteCategory(long id);
+    Categories getCategoryById(long id);
 }

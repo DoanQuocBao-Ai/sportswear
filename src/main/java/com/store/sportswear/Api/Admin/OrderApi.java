@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/don-hang")
+@RequestMapping("/api/order")
 public class OrderApi {
     @Autowired
     private IOrderService orderService;
@@ -25,7 +25,7 @@ public class OrderApi {
     private IUserService userService;
 
     @GetMapping("/all")
-    public Page<Order> getDonHangByFilter(@RequestParam(defaultValue = "1") int page, @RequestParam String status,
+    public Page<Order> getOrderByFilter(@RequestParam(defaultValue = "1") int page, @RequestParam String status,
                                           @RequestParam String fromDay, @RequestParam String toDay) throws ParseException {
 
         SearchOrderDto object = new SearchOrderDto();

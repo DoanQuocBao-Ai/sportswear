@@ -95,4 +95,10 @@ public class UserSystem {
     public void setListOrder(List<Order> listOrder) {
         this.listOrder = listOrder;
     }
+
+    @Override
+    public String toString() {
+        return "UserSystem [id=" + id + ", user_email=" + user_email + ", user_password=" + user_password + ", confirmPassword="
+                + confirmPassword + ", user_name=" + user_name + ", user_phone=" + user_phone + ", user_address=" + user_address;
+    }
 }

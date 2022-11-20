@@ -67,7 +67,7 @@ public class ProductApi {
     }
 
     @PostMapping(value = "/save")
-    public ResponseObject addSanPham(@ModelAttribute @Valid ProductDto newProductDto, BindingResult result,
+    public ResponseObject addProduct(@ModelAttribute @Valid ProductDto newProductDto, BindingResult result,
                                      HttpServletRequest request) {
 
         ResponseObject responseObject = new ResponseObject();
