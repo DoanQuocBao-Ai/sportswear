@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CategoryCartServiceImpl implements ICategoryCartService {
     @Autowired
-    CategoryCartRepository repo;
+    private CategoryCartRepository repo;
 
     @Override
     public Category_Cart getByProductAndCart(Product product, Cart cart) {

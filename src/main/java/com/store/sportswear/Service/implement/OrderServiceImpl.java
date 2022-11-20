@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements IOrderService {
     @Autowired
-    OrderRepository repository;
+    private OrderRepository repository;
 
     public OrderServiceImpl() {
         super();

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CategoryServiceImpl implements ICategoryService {
     @Autowired
-    CategoryRepository repo;
+    private CategoryRepository repo;
 
     public CategoryServiceImpl() {
         super();

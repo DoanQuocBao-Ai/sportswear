@@ -90,13 +90,12 @@ public class ProductApi {
 
 
     @DeleteMapping("/delete/{id}")
-    public String deleteSanPham(@PathVariable long id) {
+    public String deleteProduct(@PathVariable long id) {
         productService.deleteProduct(id);
         return "OK !";
     }
 
 
-    // lưu ảnh của sản phẩm vào thư mục
     public void saveImageForProduct(Product product, ProductDto productDto, HttpServletRequest request) {
 
         MultipartFile productImage = productDto.getImage();

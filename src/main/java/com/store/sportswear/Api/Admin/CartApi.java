@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("api/gio-hang")
+@RequestMapping("api/cart")
 @SessionAttributes("loggedInUser")
 public class CartApi {
 

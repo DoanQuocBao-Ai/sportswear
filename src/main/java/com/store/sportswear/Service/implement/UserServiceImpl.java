@@ -26,9 +26,6 @@ public class UserServiceImpl implements IUserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private RoleRepository roleRepository;
-    public UserServiceImpl() {
-        super();
-    }
     @Override
     public UserSystem saveUserForMember(UserSystem userSystem) {
         userSystem.setUser_password(bCryptPasswordEncoder.encode(userSystem.getUser_password()));

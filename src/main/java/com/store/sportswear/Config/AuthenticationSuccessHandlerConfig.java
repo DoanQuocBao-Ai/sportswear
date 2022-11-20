@@ -1,10 +1,11 @@
 package com.store.sportswear.Config;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-@Configuration
-public class AuthenticationSuccessHandlerConfig implements org.springframework.security.web.authentication.AuthenticationSuccessHandler {
+@Component
+public class AuthenticationSuccessHandlerConfig implements AuthenticationSuccessHandler {
     private RedirectStrategy redirectStrategy=new DefaultRedirectStrategy();
 
     @Override

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class CartServiceImpl implements ICartService {
     @Autowired
-    CartRepository repo;
+    private CartRepository repo;
 
     @Override
     public Cart getCartByUser(UserSystem userSystem) {

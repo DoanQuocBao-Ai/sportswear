@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OrderDetailServiceImpl implements IOrderDetailService {
     @Autowired
-    OrderDetailRepository repository;
+    private OrderDetailRepository repository;
 
     public OrderDetailServiceImpl() {
         super();

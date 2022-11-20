@@ -18,11 +18,11 @@ import java.util.Set;
 @Service
 public class ProductServiceImpl implements IProductService {
     @Autowired
-    ProductRepository repository;
+    private ProductRepository repository;
     @Autowired
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
     @Autowired
-    BrandRepository brandRepository;
+    private BrandRepository brandRepository;
 
     public ProductServiceImpl() {
         super();
